@@ -34,8 +34,8 @@ public class Plat {
     @ManyToOne
     @JoinColumn(name = "id_pays") 
     private Pays pays;
-    @OneToOne
-    private Image image;
+    /*@OneToOne
+    private Image image;*/
     @OneToMany (mappedBy = "plat")
     private List<Image> images;
 
@@ -75,13 +75,6 @@ public class Plat {
         this.dateCreation = dateCreation;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    public Image getImage() {
-        return image;
-    }
 
     @Override
     public String toString() {

@@ -25,13 +25,13 @@ public class PlatServiceImpl implements PlatService {
 
     @Override
     public Plat updatePlat(Plat p)  {
-        Long oldProdImageId = this.getPlat(p.getIdPlat()).getImage().getIdImage();
-        Long newProdImageId = p.getImage().getIdImage();
+        //Long oldProdImageId = this.getPlat(p.getIdPlat()).getImage().getIdImage();
+        //Long newProdImageId = p.getImage().getIdImage();
 
         Plat platUpdated = platRepository.save(p);
 
-      if (oldProdImageId != newProdImageId)
-            imageRepository.deleteById(oldProdImageId);
+      //if (oldProdImageId != newProdImageId)
+      //      imageRepository.deleteById(oldProdImageId);
 
         return platUpdated;
     }
