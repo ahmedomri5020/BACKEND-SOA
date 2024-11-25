@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import com.ahmed.pays.entities.Pays;
 import com.ahmed.pays.service.PaysService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/pays")
 public class PaysRESTController {

@@ -11,7 +11,6 @@ import com.ahmed.users.entities.User;
 import com.ahmed.users.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class UserRestController {
 
 	@Autowired

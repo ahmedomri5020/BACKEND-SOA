@@ -1,5 +1,6 @@
 package com.ahmed.users.security;
 
+import com.ahmed.users.security.JWTAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +41,6 @@ public class SecurityConfig {
 		http
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.csrf(csrf -> csrf.disable())
-				.cors(cors -> cors.configurationSource(corsConfigurationSource()))
 				.authorizeHttpRequests(requests -> requests
 						.requestMatchers("/login", "/register/**", "/verifyEmail/**").permitAll()
 						.requestMatchers("/all").hasAuthority("ADMIN")
@@ -49,7 +49,7 @@ public class SecurityConfig {
 
 		return http.build();
 	}
-
+	/*
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
@@ -63,5 +63,5 @@ public class SecurityConfig {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
-	}
+	}*/
 }

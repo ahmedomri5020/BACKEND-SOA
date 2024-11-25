@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ahmed.pays.entities.Plat;
 import com.ahmed.pays.service.PlatService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 
 @RestController
 @RequestMapping("/api/plats") 
@@ -24,7 +24,14 @@ import com.ahmed.pays.service.PlatService;
 public class PlatRESTController {
 
     @Autowired
-    private PlatService platService; 
+    private PlatService platService;
+
+
+    @GetMapping("/auth")
+    Authentication getAuth(Authentication auth)
+    {
+        return auth;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Plat> getAllPlats() {
